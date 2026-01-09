@@ -151,7 +151,7 @@ export default function RootLayout({
               </main>
 
               <Footer />
-              <Toaster richColors closeButton />
+              <Toaster position="top-right" richColors closeButton visibleToasts={1} />
             </div>
           </AuthProvider>
         </ThemeProvider>
