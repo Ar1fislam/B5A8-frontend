@@ -202,7 +202,7 @@ export function Navbar() {
   const adminNavItems = navItems.admin
 
   return (
-    <nav className="sticky top-0 z-50 w-full  border-b bg-background/80 backdrop-blur supports-backdrop-filter:bg-background/60">
+    <nav className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-backdrop-filter:bg-background/60">
       <div className="mx-auto h-16 w-full max-w-8xl px-4 sm:px-6 lg:px-8">
         {/* 3-column layout keeps center nav truly centered */}
         <div className="grid h-full grid-cols-[1fr_auto_1fr] items-center">
@@ -222,7 +222,7 @@ export function Navbar() {
           </div>
 
           {/* Right: Actions */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center justify-end gap-2 sm:gap-3">
             {user && <Notifications pendingReviews={pendingReviews} />}
 
             {isLoading ? (
