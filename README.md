@@ -3,6 +3,9 @@
 ## Project Overview
 TravelBuddy is a social-travel web platform that helps travelers create travel plans and find compatible travel buddies. 
 
+## Live Link (fronted)
+- Live URL: https://b5a8-frontend.vercel.app/
+
 ## Tech Stack
 - Next.js (TypeScript) 
 - Tailwind CSS
