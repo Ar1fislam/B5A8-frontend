@@ -12,6 +12,13 @@ TravelBuddy is a social-travel web platform that helps travelers create travel p
 - radix-ui 
 - Zod (validation) 
 
+## How to use
+- After registering create travel plan or check other users travel plan
+- you need to be premium user before creating a plan, so subscribe monthly/yearly plan to become premium
+- you can match request to other users travel plan, and reciever need to accept it.
+- click on profile picture to show sidebar where dashboard, profile existed. Admin has seperated admin dashboard
+- you can only review a user after completing the trip.
+
 ## Credentials 
 
 | Role  | Email               | Password               |
