@@ -86,8 +86,6 @@
   --input: oklch(0.89 0.01 150);
   --ring: oklch(0.62 0.10 160);
 
-  /* Keep your chart colors if you want, or set forest-like ones (optional) */
-  /* --chart-1 ... --chart-5 ... */
 
   --sidebar: oklch(0.985 0.01 150);
   --sidebar-foreground: oklch(0.20 0.02 160);
@@ -207,6 +205,26 @@
     transform: translate3d(0, 0, 0);
   }
 }
+
+/*hero animation*/
+/* @keyframes hero-word-in {
+  from { opacity: 0; transform: translateY(10px); filter: blur(8px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+.hero-word {
+  animation: hero-word-in 650ms ease-out both;
+}
+
+@keyframes hero-sub-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-sub {
+  animation: hero-sub-in 520ms ease-out both;
+} */
+
 
 @keyframes app-float {
   0% {

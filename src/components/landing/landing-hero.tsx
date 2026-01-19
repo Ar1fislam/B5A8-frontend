@@ -1,9 +1,100 @@
+'use client'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
 import { ArrowRight, Compass, MapPinned, Trees, Sparkles } from 'lucide-react'
+
+
+function HeroImageSlider() {
+  const slides = [
+    '/images/landing/hero.jpg',
+    '/images/landing/hero2.jpg',
+    '/images/landing/hero3.jpg',
+  ]
+
+  const [index, setIndex] = useState(0)
+  const [paused, setPaused] = useState(false)
+
+  useEffect(() => {
+    if (paused || slides.length <= 1) return
+    const id = window.setInterval(() => {
+      setIndex((i) => (i + 1) % slides.length)
+    }, 3500)
+    return () => window.clearInterval(id)
+  }, [paused, slides.length])
+
+  const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length)
+  const next = () => setIndex((i) => (i + 1) % slides.length)
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      {/* This div keeps the exact height you already had on Image */}
+      <div className="relative h-[360px] w-full sm:h-[420px] lg:h-[520px]">
+        {slides.map((src, i) => (
+          <Image
+            key={src}
+            src={src}
+            alt="Travelers in nature"
+            fill
+            priority={i === 0}
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className={[
+              'object-cover transition-all duration-300',
+              'hover:scale-[1.02]',
+              i === index ? 'opacity-100' : 'opacity-0',
+            ].join(' ')}
+          />
+        ))}
+      </div>
+
+      {slides.length > 1 && (
+        <>
+          {/* <button
+            type="button"
+            aria-label="Previous image"
+            onClick={prev}
+            className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-background/70 p-2 backdrop-blur hover:bg-background"
+          >
+          
+          </button>
+
+          <button
+            type="button"
+            aria-label="Next image"
+            onClick={next}
+            className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-background/70 p-2 backdrop-blur hover:bg-background"
+          >
+           
+          </button> */}
+
+          <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                aria-label={`Go to slide ${i + 1}`}
+                onClick={() => setIndex(i)}
+                className={[
+                  'h-2 w-2 rounded-full transition-all',
+                  i === index ? 'w-6 bg-primary' : 'bg-foreground/30 hover:bg-foreground/50',
+                ].join(' ')}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
+
+
 
 export default function LandingHero() {
   return (
@@ -71,14 +162,15 @@ export default function LandingHero() {
         <div className="lg:col-span-6">
           <div className="relative overflow-hidden rounded-3xl border bg-card/50 shadow-sm backdrop-blur">
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-accent/10" />
-            <Image
+            {/* <Image
               src="/images/landing/hero.jpg"
               alt="Travelers in nature"
               width={1400}
               height={1000}
               priority
               className="h-[360px] w-full object-cover transition-transform duration-500 hover:scale-[1.02] sm:h-[420px] lg:h-[520px]"
-            />
+            /> */}
+            <HeroImageSlider />
           </div>
         </div>
       </div>
