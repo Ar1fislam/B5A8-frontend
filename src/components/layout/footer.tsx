@@ -4,7 +4,7 @@
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import {
-  Mountain,
+  TentTree,
   ArrowUpRight,
   Mail,
   Github,
@@ -20,14 +20,12 @@ const linkGroups = [
     links: [
       { label: 'Find travelers', href: '/explore' },
       { label: 'Travel plans', href: '/travel-plans' },
-      { label: 'Destinations', href: '/destinations' },
       { label: 'Dashboard', href: '/dashboard' },
     ],
   },
   {
     title: 'Support',
     links: [
-      { label: 'Safety', href: '' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Contact', href: '/contact' },
       { label: 'Community', href: '/community' },
@@ -36,9 +34,9 @@ const linkGroups = [
   {
     title: 'Legal',
     links: [
-      { label: 'Privacy', href: '' },
-      { label: 'Terms', href: '' },
-      { label: 'Cookies', href: '' },
+      { label: 'Privacy', href: '/privacy' },
+      { label: 'Terms', href: '/terms' },
+      { label: 'Cookies', href: '/cookies' },
     ],
   },
 ] as const
@@ -59,7 +57,7 @@ export function Footer() {
           <div className="lg:col-span-4">
             <Link href="/" className="group inline-flex items-center gap-3">
               <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary transition group-hover:bg-primary/15">
-                <Mountain className="h-5 w-5" />
+                <TentTree className="h-5 w-5" />
               </span>
 
               <span className="flex flex-col leading-tight">

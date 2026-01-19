@@ -17,6 +17,7 @@ import { UserMenu } from './UserMenu'
 import { getNavItems } from './NavItems'
 import { Menu, X } from 'lucide-react'
 import { ModeToggle } from './ThemeToggler'
+import { Logo } from './Logo'
 
 export function Navbar() {
   const pathname = usePathname()
@@ -66,12 +67,13 @@ export function Navbar() {
         <div className="grid h-full grid-cols-[1fr_auto_1fr] items-center">
           {/* Left: Brand (no logo component) */}
           <div className="flex items-center">
-            <Link
+            {/* <Link
               href="/"
               className="text-3xl font-semibold tracking-tight text-foreground transition-colors hover:text-foreground/80"
             >
               TravelBuddy
-            </Link>
+            </Link> */}
+            <Logo/>
           </div>
 
           {/* Center: Desktop Navigation */}
