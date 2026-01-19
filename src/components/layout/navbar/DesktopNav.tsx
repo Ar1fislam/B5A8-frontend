@@ -1,6 +1,4 @@
 // // frontend/components/layout/navbar/DesktopNav.tsx
-
-// frontend/components/layout/navbar/DesktopNav.tsx
 'use client'
 
 import Link from 'next/link'
