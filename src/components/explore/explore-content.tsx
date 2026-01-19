@@ -470,8 +470,8 @@ export default function ExplorePage() {
                           <div className="relative flex items-start justify-between gap-3">
                             <div className="min-w-0">
                               <div className="flex items-center gap-2">
-                                <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-purple-500/10">
-                                  <MapPin className="h-4 w-4 text-purple-600 dark:text-purple-400" />
+                                <div className="flex h-9 w-9 items-center justify-center rounded-2xl ">
+                                  <MapPin className="h-4 w-4 text-black dark:text-white" />
                                 </div>
                                 <h3 className="truncate text-base font-semibold tracking-tight">
                                   {plan.destination}
@@ -484,7 +484,7 @@ export default function ExplorePage() {
                                   {formatDate(plan.startDate)} – {formatDate(plan.endDate)}
                                 </span>
 
-                                <span className="inline-flex items-center gap-1 rounded-full bg-fuchsia-500/10 px-2.5 py-1 text-xs text-fuchsia-700 dark:text-fuchsia-300">
+                                <span className="inline-flex items-center gap-1 rounded-full bg-muted px-2.5 py-1 text-xs text-black dark:text-white">
                                   <BadgeCheck className="h-3.5 w-3.5" />
                                   {plan.travelType}
                                 </span>
@@ -542,7 +542,7 @@ export default function ExplorePage() {
                               </span>
                             ) : isOwnPlan ? (
                               <span className="rounded-full bg-muted px-2.5 py-1 text-xs text-muted-foreground">
-                                Your plan
+                                Own
                               </span>
                             ) : (
                               <span className="rounded-full bg-emerald-500/10 px-2.5 py-1 text-xs text-emerald-700 dark:text-emerald-300">
