@@ -42,7 +42,10 @@ export default function LoginPage() {
   const {
     register,
     handleSubmit,
+    setValue,
+    clearErrors,
     formState: { errors },
+
   } = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
   })
@@ -59,6 +62,20 @@ export default function LoginPage() {
       setIsLoading(false)
     }
   }
+
+  //demo login
+  const DEMO = {
+    admin: { email: 'admin@travelbuddy.local', password: 'Admin@12345' },
+    user: { email: 'john@example.com', password: 'Demo@23456' },
+  }
+
+  const fillDemo = (role: 'admin' | 'user') => {
+    setValue('email', DEMO[role].email, { shouldDirty: true })
+    setValue('password', DEMO[role].password, { shouldDirty: true })
+    clearErrors(['email', 'password'])
+    setShowPassword(false)
+  }
+
 
   return (
     <div className="relative mx-auto grid min-h-[calc(100vh-8rem)] w-full max-w-6xl items-center gap-6 px-4 py-8 md:grid-cols-2 md:px-6">
@@ -119,7 +136,18 @@ export default function LoginPage() {
           </div>
         </CardHeader>
 
+        
+
         <CardContent className="space-y-6">
+          {/* Demo buttons */}
+        <div className="flex gap-2">
+          <Button type="button" variant="default" size="sm" onClick={() => fillDemo('user')}>
+            User Demo
+          </Button>
+          <Button type="button" variant="default" size="sm" onClick={() => fillDemo('admin')}>
+            Admin Demo
+          </Button>
+        </div>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             {/* Email */}
             <div className="space-y-2">
